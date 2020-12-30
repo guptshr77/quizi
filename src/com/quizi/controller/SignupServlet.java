@@ -7,6 +7,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.quizi.bo.UserBO;
+import com.quizi.model.User;
+
 /**
  * Servlet implementation class SignupServlet
  */
@@ -27,12 +30,17 @@ public class SignupServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String first_name = request.getParameter("firstName");
+		User user = new User();
+		user.setFirstName(request.getParameter("firstName"));
+		
+		UserBO userbo = new UserBO();
+		userbo.validateUser(user);
+		
 		// DO something
 		
 		
-		request.setAttribute("name",first_name);
-		request.getRequestDispatcher("jsps/user/homepage.jsp").forward(request, response); 
+//		request.setAttribute("name",first_name);
+//		request.getRequestDispatcher("jsps/user/homepage.jsp").forward(request, response); 
 //		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 

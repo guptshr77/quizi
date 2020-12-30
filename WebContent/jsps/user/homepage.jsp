@@ -7,7 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-		<h1>Quizi</h1>
-		<a href="jsps/user/signup.jsp">Click here</a>
+	<h3><%= request.getAttribute("name") %></h3>
 </body>
 </html>

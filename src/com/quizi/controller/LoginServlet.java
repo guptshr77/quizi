@@ -10,19 +10,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.quizi.bo.UserBO;
-import com.quizi.model.User;
+import com.quizi.dal.UserDAO;
+import com.quizi.model.LoginInfo;
 
 /**
- * Servlet implementation class SignupServlet
+ * Servlet implementation class LoginServlet
  */
-@WebServlet("/SignupServlet")
-public class SignupServlet extends HttpServlet {
+@WebServlet("/LoginServlet")
+public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public SignupServlet() {
+    public LoginServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,29 +32,26 @@ public class SignupServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		User user = new User();
-		user.setFirstName(request.getParameter("firstName"));
-		user.setLastName(request.getParameter("lastName"));
-		user.setUsername(request.getParameter("userName"));
-		user.setPassword(request.getParameter("password"));
+		LoginInfo login = new LoginInfo();
 		
-		UserBO userbo = new UserBO();
-		String message = userbo.addUser(user);
+		login.setUsername(request.getParameter("username"));
+		login.setPassword(request.getParameter("password"));
 		
-		if (message == null){
-			RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
+		UserBO loginbo = new UserBO();
+		
+		String message = loginbo.login(login);
+		if (message == null) {
+			RequestDispatcher rd = request.getRequestDispatcher("jsps/questionaire/questions.jsp");
 			rd.forward(request, response);	
 		}else {
 			request.setAttribute("message", message);
-			RequestDispatcher rd = request.getRequestDispatcher("jsps/user/signup.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
 			rd.forward(request, response);	
-
 		}
 		
-//		request.setAttribute("name",first_name);
-//		request.getRequestDispatcher("jsps/user/homepage.jsp").forward(request, response); 
-//		response.getWriter().append("Served at: ").append(request.getContextPath());
+		
+		
+		//response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**

@@ -11,15 +11,23 @@
 	
 	<h3>Welcome to Quizi! Here you can check your knowledge about FBLA. Sign up below to start taking tests and see you how you do.</h3>
 	
-	<form action = "../../SignupServlet" method = "post" >
+		<h1>
+		<%
+	if (request.getAttribute("message") != null){
+			out.println(request.getAttribute("message")); 
+	}%>
+	</h1>
+	<br />
+	
+	<form action = "/SignupServlet" method = "post" >
 		First Name:<br/>
-			<input type = "text" name = "firstName"/><br/>
+			<input type = "text" name = "firstName" value="myFirstName"/><br/>
 		Last Name:<br/>
-			<input type = "text" name = "lastName"/><br/>
+			<input type = "text" name = "lastName" value="myLastName"/><br/>
 		User Name:<br/>
-			<input type = "text" name = "userName"/><br/>
+			<input type = "text" name = "userName" value="myUserName"/><br/>
 		Password:<br/>
-			<input type = "password"  name = "password"/><br/>
+			<input type = "password"  name = "password" value="mypassword"/><br/>
 			
 		<input type = "submit" value = "Submit"/>
 	</form>

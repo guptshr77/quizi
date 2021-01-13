@@ -45,22 +45,14 @@ public class UserBO {
 		return message;
 	}
 
-	public String login(LoginInfo login) {
+	public User login(LoginInfo login) {
 		String username = login.getPassword();
 		String password = login.getUsername();
 		String message = null;
 
 		UserDAO logindao = new UserDAO();
 
-
-		if (logindao.login(login) == 1) {
-			System.out.println("The password or username is incorrect.");
-			message = "The username or password is incorrect";
-		}else {
-			System.out.println("Login Successfull!");
-		}
-
-		return message;
+		return logindao.login(login);
 	}
 
 }

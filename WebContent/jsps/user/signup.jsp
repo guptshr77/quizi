@@ -19,7 +19,7 @@
 	</h1>
 	<br />
 	
-	<form action = "/SignupServlet" method = "post" >
+	<form action = "/quizi/SignupServlet" method = "post" >
 		First Name:<br/>
 			<input type = "text" name = "firstName" value="myFirstName"/><br/>
 		Last Name:<br/>

@@ -1,6 +1,7 @@
 package com.quizi.controller;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,22 +10,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.quizi.bo.UserBO;
-import com.quizi.dal.UserDAO;
-import com.quizi.model.LoginInfo;
-import com.quizi.model.User;
+import com.quizi.bo.ReportBO;
+import com.quizi.model.Report;
 
 /**
- * Servlet implementation class LoginServlet
+ * Servlet implementation class ReportServlet
  */
-@WebServlet("/LoginServlet")
-public class LoginServlet extends HttpServlet {
+@WebServlet("/ReportServlet")
+public class ReportServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public LoginServlet() {
+    public ReportServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,24 +32,14 @@ public class LoginServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		LoginInfo login = new LoginInfo();
+		// TODO Auto-generated method stub
 		
-		login.setUsername(request.getParameter("username"));
-		login.setPassword(request.getParameter("password"));
+		ReportBO reportbo = new ReportBO();
+		List<Report> reports = reportbo.getReportData(Integer.parseInt(request.getParameter("userId")));
 		
-		UserBO loginbo = new UserBO();
-		
-		User user = loginbo.login(login);
-		if (user != null) {
-			request.setAttribute("user", user);
-			RequestDispatcher rd = request.getRequestDispatcher("QuestionServlet");
-			rd.forward(request, response);	
-		}else {
-			request.setAttribute("message", "The Username or Password is not corret");
-			RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
-			rd.forward(request, response);	
-		}
-		
+		request.setAttribute("reports", reports);
+		RequestDispatcher rd = request.getRequestDispatcher("jsps/report/report.jsp");
+		rd.forward(request, response);
 		
 		
 		//response.getWriter().append("Served at: ").append(request.getContextPath());

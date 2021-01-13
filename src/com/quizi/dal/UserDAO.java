@@ -8,12 +8,12 @@ import java.sql.Statement;
 
 import com.quizi.bo.*;
 import com.quizi.model.LoginInfo;
-import com.quizi.model.User;;
+import com.quizi.model.User;
 
 public class UserDAO {
 	
 	public int validateUsername(String username) {
-		Connection con = getConnection();
+		Connection con = Utilities.getConnection();
 		Statement stmt = null;
 		ResultSet r = null;
 		int validateResult = -1;
@@ -48,7 +48,7 @@ public class UserDAO {
 	}
 	
 	public void addUser(User user) {
-		Connection con = getConnection();
+		Connection con = Utilities.getConnection();
 		try {
 			Statement stmt = con.createStatement();
 			String sqlQuser = "INSERT INTO QUSER(username, password, firstName, lastName) values('" 
@@ -71,57 +71,33 @@ public class UserDAO {
 				}
 		}
 	}
-
-	public void validateCredentials(UserBO user) {
-		getConnection();
-	}
-
-	private Connection getConnection() {
-		Connection connection = null;
-		
-		try {
-			 Class.forName("org.postgresql.Driver");
-			 connection = DriverManager.getConnection("jdbc:postgresql://localhost/quizi","postgres","tiger");
-		
-			 if (connection != null) {
-				 System.out.println("Connection OK");
-				 
-			 }else {
-				 System.out.println("Connection failed");
-			 }
-			 
-		}catch(Exception e) {
-			System.out.println(e);
-		}
-		
-		return connection;
-	}
 	
-	public int login(LoginInfo login){
-		Connection con = getConnection();
+	public User login(LoginInfo login){
+		Connection con = Utilities.getConnection();
 		Statement stmt = null;
 		int loginSuccess = -1;
 		ResultSet r = null;
+		User user = null;
 		
 		try {
 			stmt = con.createStatement();
-			String sqlLogin = "SELECT count(*) AS rowcount FROM quser WHERE username = '" + login.getUsername() +"'  and password = '" + login.getPassword() + "';";
+			String sqlLogin = "SELECT firstName, lastName, userId FROM quser WHERE username = '" + login.getUsername() +"'  and password = '" + login.getPassword() + "';";
 			System.out.println(sqlLogin);
 			r = stmt.executeQuery(sqlLogin);
-			r.next();
 			
-			if (r.getInt("rowcount") == 1) {
-				loginSuccess = 0;				
-			}else {
-				loginSuccess = 1;
+			if (r.next()) {
+				user = new User();
+				user.setFirstName(r.getString("firstName"));
+				user.setLastName(r.getString("lastName"));
+				user.setUserId(r.getInt("userId"));
+				user.setUsername(login.getUsername());	
 			}
-			
 
 		} catch (SQLException e) {
 			loginSuccess = 1;
 			e.printStackTrace();
 		}
-		return loginSuccess;	
+		return user;	
 	}
 		
 }

@@ -5,24 +5,39 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Login</title>
+<style>
+	b{
+		font-size = 17px;
+	}
+	h1{text-align: center;}
+</style>
 </head>
-<body>
-	<h1>Quizi</h1>
+<body style="background-color:powderblue" style= "text-align:center;">  
+	
+	<h1>Welcome to Quizi!</h1>
 	<h1>
-		<%
+	<%
 	if (request.getAttribute("message") != null){
 			out.println(request.getAttribute("message")); 
-	}%>
+	}
+	%>
 	</h1>
 	<br />
 
-	<form action="LoginServlet" method="post">
-		User Name: <br /> <input type="text" name="username"
-			value="myUserName" /><br /> Password: <br /> <input type="password"
-			name="password" value="mypassword" /><br /> <input type="submit"
-			value="login" />
+	<form action="/quizi/LoginServlet" method="post">
+		<center><b>User Name:</b></center><br/> 
+		<br/>
+		<center><input type="text" name="username" value="myUserName" /></center><br/> 
+		<br/>
+		<br/>
+		<center><b>Password:</b></center><br/>
+		<br/> 
+		<center><input type="password" name="password" value="mypassword" /></center><br/> 
+		<br/>
+		<center><input type="submit" value="login" /></center>
 	</form>
-	<a href=jsps/user/signup.jsp>Sign Up</a>
+	</br>
+	<center>Don't have an account? Sign up <a href=jsps/user/signup.jsp>here</a></center>
 	<br />
 </body>
 </html>

@@ -18,7 +18,7 @@ public class CheckAnswersDAO {
 		
 		try {
 			stmt = con.createStatement();
-			String correctAnswer = "SELECT answer FROM question WHERE questionId = " + questionId + ";";
+			String correctAnswer = "SELECT answer FROM questions WHERE questionId = " + questionId + ";";
 			System.out.println(correctAnswer);
 			rs = stmt.executeQuery(correctAnswer);
 			rs.next();

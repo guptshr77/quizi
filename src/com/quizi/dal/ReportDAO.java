@@ -20,7 +20,7 @@ public class ReportDAO {
 
 		try {
 			stmt = con.createStatement();
-			String reportResponse = "SELECT q.questiondescription, q.questiontype, q.answer, u.useranswer, u.isCorrect FROM question q, userresponse u WHERE q.questionId = u.questionId AND u.userId = " + userId;
+			String reportResponse = "SELECT q.questiondescription, q.questiontype, q.answer, u.useranswer, u.isCorrect FROM questions q, userresponse u WHERE q.questionId = u.questionId AND u.userId = " + userId;
 			if(!isFullReport)
 				reportResponse += " ORDER BY u.datetime DESC LIMIT 5";
 			reportResponse += ";";

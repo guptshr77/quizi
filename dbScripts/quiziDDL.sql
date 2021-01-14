@@ -8,7 +8,7 @@ CREATE TABLE quser(
 
 CREATE TABLE questions(
 	questionId SERIAL PRIMARY KEY,
-	questionType VARCHAR(20),
+	questionType INT,
 	questionDescription VARCHAR(200),
 	answer VARCHAR(150)
 );

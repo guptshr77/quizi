@@ -23,7 +23,7 @@ public class CheckAnswersBO {
 			isCorrect = false;
 			String questionId = request.getParameter(String.valueOf(i));
 			correctAnswer = answerDAO.getAnswer(questionId);
-			userAnswer = request.getParameter(questionId);
+			userAnswer = request.getParameter("opt" + questionId);
 
 
 			if (correctAnswer.equalsIgnoreCase(userAnswer)) {

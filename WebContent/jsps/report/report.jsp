@@ -21,12 +21,12 @@
 		Report report = null;
 		if (reports != null){
 				
-			for (int i = 0; i < reports.size(); i++) {
+			for (int i = reports.size() - 1; i >= 0; i--) {
 				report = reports.get(i);
 				int questionType = report.getQuestionType();
 		%>
 		<h4>
-			Question <%=i + 1%>:
+			Question <%=5 - i%>:
 		</h4>
 		<%
 			out.println(report.getQuestionDescription());

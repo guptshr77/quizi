@@ -33,14 +33,14 @@
 				<br/>
 				<% if (questionType == 2){ %> 
 						   <input type = "hidden" name = <%= i+1%> value = "<%= q.getQuestionId()%>"/>
-						   <input type = "radio" name = "<%= q.getQuestionId()%>" value = "true">
+						   <input type = "radio" name = "opt<%= q.getQuestionId()%>" value = "true">
 							<label>True</label>
-						   <input type = "radio" name = "<%= q.getQuestionId()%>" value = "false">
+						   <input type = "radio" name = "opt<%= q.getQuestionId()%>" value = "false">
 						    <label>False</label>
 				<% 	
 				} else if (questionType == 4){ %>
 							<input type = "hidden" name = <%= i+1%> value = "<%= q.getQuestionId()%>"/>
-							<input type = "text" name = "<%= q.getQuestionId()%>">
+							<input type = "text" name = "opt<%= q.getQuestionId()%>">
 				<%}else if(questionType == 3){
 						
 				%>			<input type = "hidden" name = <%= i+1 %> value = "<%= q.getQuestionId()%>"/>
@@ -48,7 +48,7 @@
 				<%
 							List<String> mcOptions = q.getMultipleChoice();
 							for(int mcloop = 0; mcloop < mcOptions.size(); mcloop++){
-				%>				<input type = "radio" name = "<%= q.getQuestionId()%>" value = "<%=mcOptions.get(mcloop)%>"/>
+				%>				<input type = "radio" name = "opt<%= q.getQuestionId()%>" value = "<%=mcOptions.get(mcloop)%>"/>
 								<label><% out.println(mcOptions.get(mcloop));%></label>
 								<br/>
 				<%			}

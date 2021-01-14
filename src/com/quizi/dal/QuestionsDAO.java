@@ -22,7 +22,7 @@ public class QuestionsDAO {
 		
 		try {
 			stmt = con.createStatement();
-			String getQuestions = "SELECT * FROM questions WHERE questionType = 3 LIMIT 5;";
+			String getQuestions = "SELECT * FROM questions WHERE questionType IN (2,3,4) LIMIT 5;";
 			System.out.println(getQuestions);
 			rs = stmt.executeQuery(getQuestions);
 			while(rs.next()) {
@@ -50,6 +50,7 @@ public class QuestionsDAO {
 			try {
 				if(con != null) {
 					rs.close();	
+					rsmc.close();
 					con.close();
 				}
 			} catch (SQLException e) {

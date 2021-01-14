@@ -1,8 +1,8 @@
 
 INSERT INTO multipleChoice VALUES (1,'confidence, understanding, efficient, scholarship');
 INSERT INTO multipleChoice VALUES (1, 'seek, sincere, abide, initiative');
-INSERT INTO multipleChoice VALUES (1,'c. promise, aims, qualities, active');
-INSERT INTO multipleChoice VALUES (1, 'd. manner, directors, regulations, cooperation');
+INSERT INTO multipleChoice VALUES (1,'promise, aims, qualities, active');
+INSERT INTO multipleChoice VALUES (1, 'manner, directors, regulations, cooperation');
 
 INSERT INTO multipleChoice VALUES (2, 'I promise to use my abilities');
 INSERT INTO multipleChoice VALUES (2, 'I agree to do my utmost');

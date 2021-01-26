@@ -22,39 +22,35 @@ import com.quizi.model.User;
 @WebServlet("/CheckAnswersServlet")
 public class CheckAnswersServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public CheckAnswersServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public CheckAnswersServlet() {
+		super();
+	}
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//CheckAnswers check = new CheckAnswers();
-		
-		//check.setAnswer(request.getAttribute(""));
-		//List<Question> questions = (List<Question>)request.getAttribute("questions");
-		//System.out.println(questions);
+
+		List<Question> questions = (List<Question>)request.getAttribute("questions");
+		System.out.println(questions);
 
 		CheckAnswersBO checkAnswerBO = new CheckAnswersBO();
 		List<Report> reports = checkAnswerBO.checkAnswer(request);
-		
+
 		request.setAttribute("reports", reports);
+		
 		RequestDispatcher rd = request.getRequestDispatcher("/ResponseServlet");
 		rd.forward(request, response);
-			//response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

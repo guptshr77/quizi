@@ -9,6 +9,6 @@ public class QuestionsBO {
 	public List<Question> getQuestions() {
 		QuestionsDAO questionsDAO = new QuestionsDAO();
 		return questionsDAO.getQuestions();
-	
+
 	}
 }

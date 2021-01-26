@@ -41,18 +41,22 @@ public class UserBO {
 				userdao.addUser(user);
 			}
 		}
-		
+
 		return message;
 	}
 
 	public User login(LoginInfo login) {
-		String username = login.getPassword();
-		String password = login.getUsername();
-		String message = null;
-
 		UserDAO logindao = new UserDAO();
 
 		return logindao.login(login);
+	}
+	
+	
+	public User getUserDetails(int userId) {
+		
+		UserDAO userDAO = new UserDAO();
+
+		return userDAO.getUserDetails(userId);
 	}
 
 }

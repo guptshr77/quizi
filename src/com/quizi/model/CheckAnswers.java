@@ -4,7 +4,6 @@ public class CheckAnswers {
 	private String answer;
 	private String userAnswer;
 
-	
 	public String getAnswer() {
 		return answer;
 	}

@@ -7,9 +7,16 @@ public class Question {
 	private int questionType;
 	private String questionDescription;
 	private String answer;
-	private List<String> multipleChoice;
-	
+	private List<String> multipleChoice;	
+	private List<Matching> matching;
 
+
+	public List<Matching> getMatching() {
+		return matching;
+	}
+	public void setMatching(List<Matching> matching) {
+		this.matching = matching;
+	}	
 	public int getQuestionId() {
 		return questionId;
 	}
@@ -39,7 +46,5 @@ public class Question {
 	}
 	public void setMultipleChoice(List<String> multipleChoice) {
 		this.multipleChoice = multipleChoice;
-	}
-	
-
+	}	
 }

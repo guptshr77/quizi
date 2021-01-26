@@ -27,12 +27,12 @@
 	<form action="/quizi/LoginServlet" method="post">
 		<center><b>User Name:</b></center><br/> 
 		<br/>
-		<center><input type="text" name="username" value="myUserName" /></center><br/> 
+		<center><input type="text" name="username"/></center><br/> 
 		<br/>
 		<br/>
 		<center><b>Password:</b></center><br/>
 		<br/> 
-		<center><input type="password" name="password" value="mypassword" /></center><br/> 
+		<center><input type="password" name="password"/></center><br/> 
 		<br/>
 		<center><input type="submit" value="login" /></center>
 	</form>

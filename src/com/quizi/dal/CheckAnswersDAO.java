@@ -10,12 +10,12 @@ import java.util.List;
 import com.quizi.model.Question;
 
 public class CheckAnswersDAO {
-	public String getAnswer(String questionId) {
+	public String getAnswer(int questionId) {
 		Connection con = Utilities.getConnection();
 		Statement stmt = null;
 		ResultSet rs = null;
 		String answer = null;
-		
+
 		try {
 			stmt = con.createStatement();
 			String correctAnswer = "SELECT answer FROM questions WHERE questionId = " + questionId + ";";
@@ -37,22 +37,21 @@ public class CheckAnswersDAO {
 		}
 		return answer;
 	}
-	
+
 	public int storeUserAnswer(int userId, int questionId, String userAnswer, boolean isCorrect){
 		Connection con = Utilities.getConnection();
 		Statement stmt = null;
 		ResultSet rs = null;
 		int result = -1;
-		
+
 		try {
 			stmt = con.createStatement();
 			String sqlUsername = "INSERT INTO userResponse VALUES (" + userId + ", " + questionId +", '" + userAnswer + "', " + isCorrect + ", current_timestamp);";
 			System.out.println(sqlUsername);
 			stmt.executeUpdate(sqlUsername);
 			result = 0;
-			
+
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			System.out.println(e.toString());
 			result = 1;
 		}

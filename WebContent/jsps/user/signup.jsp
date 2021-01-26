@@ -21,13 +21,13 @@
 	
 	<form action = "/quizi/SignupServlet" method = "post" >
 		First Name:<br/>
-			<input type = "text" name = "firstName" value="myFirstName"/><br/>
+			<input type = "text" name = "firstName"/><br/>
 		Last Name:<br/>
-			<input type = "text" name = "lastName" value="myLastName"/><br/>
+			<input type = "text" name = "lastName"/><br/>
 		User Name:<br/>
-			<input type = "text" name = "userName" value="myUserName"/><br/>
+			<input type = "text" name = "userName"/><br/>
 		Password:<br/>
-			<input type = "password"  name = "password" value="mypassword"/><br/>
+			<input type = "password"  name = "password"/><br/>
 			
 		<input type = "submit" value = "Submit"/>
 	</form>

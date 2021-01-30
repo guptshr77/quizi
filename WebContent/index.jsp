@@ -5,39 +5,50 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Login</title>
-<style>
-	b{
-		font-size = 17px;
-	}
-	h1{text-align: center;}
-</style>
+<link rel="stylesheet" href="quizi.css">
 </head>
-<body style="background-color:powderblue" style= "text-align:center;">  
+<body>  
+	<table border="0" width="100%">
+		<tr>
+			<td align="center"><h1>Welcome to Quizi!</h1></td><td align="right">LastName, FirstName</td>
+		</tr>
+		<tr>
+			<td colspan=2><hr color="blue"/></td>
+		</tr>
+		<tr>
+			<td align="center">
+				<h1>
+					<%
+					if (request.getAttribute("message") != null){
+							out.println(request.getAttribute("message")); 
+					}
+					%>
+				</h1>
+				<br />
+				<form action="/quizi/LoginServlet" method="post">
+				<table border=0 cellspacing=20 width="40%">
+					<tr>
+						<td><b>User Name:</b></td><td><input type="text" name="username"/></td>
+					</tr>
+					<tr>
+						<td><b>Password:</b></td><td><input type="password" name="password"/></td> 
+					</tr>
+					<tr>
+						<td><input type="submit" value="Login"></td><td></td>
+					</tr>
+					<tr>
+						<td colspan=2>
+							<br/>
+							<br/>
+							Don't have an account? Sign up <a href=jsps/user/signup.jsp>here</a>
+						</td>
+					</tr>
+				</table>
+				</form>
+			</td>
+			<td></td>
+		</tr>
+	</table>
 	
-	<h1>Welcome to Quizi!</h1>
-	<h1>
-	<%
-	if (request.getAttribute("message") != null){
-			out.println(request.getAttribute("message")); 
-	}
-	%>
-	</h1>
-	<br />
-
-	<form action="/quizi/LoginServlet" method="post">
-		<center><b>User Name:</b></center><br/> 
-		<br/>
-		<center><input type="text" name="username"/></center><br/> 
-		<br/>
-		<br/>
-		<center><b>Password:</b></center><br/>
-		<br/> 
-		<center><input type="password" name="password"/></center><br/> 
-		<br/>
-		<center><input type="submit" value="login" /></center>
-	</form>
-	</br>
-	<center>Don't have an account? Sign up <a href=jsps/user/signup.jsp>here</a></center>
-	<br />
 </body>
 </html>

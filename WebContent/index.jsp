@@ -10,13 +10,13 @@
 <body>  
 	<table border="0" width="100%">
 		<tr>
-			<td align="center"><img src="quiziTempLogo.jpg" alt="Quizi" width="50" height="50"><p style = "font-size:23px">Quizi</p></td><td align="right">LastName, FirstName</td>
+			<td align="center"><img src="quiziTempLogo.jpg" alt="Quizi" width="50" height="50"><p style = "font-size:23px">Quizi</p></td><td align="right"></td>
 		</tr>
 		<tr>
 			<td colspan=2><hr color="blue"/></td>
 		</tr>
 		<tr>
-			<td align="center"><h1>Welcome to Quizi!</h1></td><td align="right">LastName, FirstName</td>
+			<td align="center"><h1>Welcome to Quizi!</h1></td><td align="right"></td>
 		</tr>
 		<tr>
 			<td align="center">

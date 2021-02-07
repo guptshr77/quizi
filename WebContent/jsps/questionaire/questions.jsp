@@ -6,13 +6,25 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Questions</title>
+<title>Quizi</title>
 <link rel="stylesheet" href="quizi.css">
+<link rel = "icon" href = "QuiziLogo.jpg">
 </head>
 <body>
 	<table border="0" width="100%">
 		<tr>
-			<td align="center"><img src="quiziTempLogo.jpg" alt="Quizi" width="50" height="50"><p style = "font-size:23px">Quizi</p></td>
+			<td align="left">
+				<table>
+					<tr>
+						<td>
+							<img src="QuiziLogo.jpg" alt="Quizi" width="50" height="50">
+						</td>
+						<td>
+							<p style = "font-size:23px;font-type:courier">Quizi</p>
+						</td>
+					</tr>
+				</table>
+			</td>
 			<td align="right">
 				<% 
 				User user = (User) request.getAttribute("user");
@@ -30,16 +42,17 @@
 		</tr>
 		<tr>
 			<td align="center">
-				<p style="text-align: right">
+			<form action="/quizi/CheckAnswersServlet" method="post">
+				<p style="color:red">
 				<% 
 				if (request.getAttribute("message") != null){
 					out.println(request.getAttribute("message"));
 				}%>
 				</p>
-				
-			<form action="/quizi/CheckAnswersServlet" method="post">
-				<table border=0 cellspacing=20 width="70%">
-				<tr><td align="left">
+				<table border=0 cellspacing=20 width="85%">
+				<tr>
+					<td align="left">
+						<table>
 				<% 
 					List<Question> questions = (List<Question>)request.getAttribute("questions");
 					Question q = null;
@@ -48,7 +61,7 @@
 					for(int i = 0; i < questions.size(); i++){
 						q = questions.get(i);
 						int questionType = q.getQuestionType(); %>
-				
+						<tr><td>
 						<h4> Question <%= i + 1 %>: </h4>
 						
 						<% out.println(q.getQuestionDescription()); %>
@@ -85,18 +98,21 @@
 								<input type="hidden" name="defnitionId<%=optCount%>" value="<%= matching.get(optCount).getDefinitionId()%>"> <br /> <%
 							}
 						
-						}else{ %>
-						<label>Nothing</label> <%
 						}
+						%></td></tr><%
 							}
 							
 						%>
-						<br /> <br /> <input type="hidden" name="userId"
-							value="<%= user.getUserId()%>" /> <input type="hidden"
-							name="firstName" value="<%= user.getFirstName()%>" /> <input
-							type="hidden" name="lastName" value="<%= user.getLastName()%>" /> <input
-							type="submit" name="submit" value="Submit" />
-					</td></tr>
+						<tr><td>
+							<br /> <br /> 
+							<input type="hidden" name="userId" value="<%= user.getUserId()%>" /> 
+							<input type="hidden" name="firstName" value="<%= user.getFirstName()%>" /> 
+							<input type="hidden" name="lastName" value="<%= user.getLastName()%>" /> 
+							<input type="submit" name="submit" value="Submit" />
+						</td></tr>	
+							</table>
+						</td>
+					</tr>
 					</table>
 				</form>	
 			</td>

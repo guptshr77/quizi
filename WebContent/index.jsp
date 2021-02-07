@@ -4,13 +4,25 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Login</title>
+<title>Quizi</title>
 <link rel="stylesheet" href="quizi.css">
+<link rel = "icon" href = "QuiziLogo.jpg">
 </head>
 <body>  
 	<table border="0" width="100%">
 		<tr>
-			<td align="center"><img src="quiziTempLogo.jpg" alt="Quizi" width="50" height="50"><p style = "font-size:23px">Quizi</p></td><td align="right"></td>
+			<td align="left">
+				<table>
+					<tr>
+						<td>
+							<img src="QuiziLogo.jpg" alt="Quizi" width="50" height="50">
+						</td>
+						<td>
+							<p style = "font-size:23px;font-type:courier">Quizi</p>
+						</td>
+					</tr>
+				</table>
+			</td><td align="right"></td>
 		</tr>
 		<tr>
 			<td colspan=2><hr color="blue"/></td>
@@ -20,18 +32,18 @@
 		</tr>
 		<tr>
 			<td align="center">
-				<h1>
+				<p style="color:red">
 					<%
 					if (request.getAttribute("message") != null){
 							out.println(request.getAttribute("message")); 
 					}
 					%>
-				</h1>
+				</p>
 				<br />
 				<form action="/quizi/LoginServlet" method="post">
 				<table border=0 cellspacing=20 width="40%">
 					<tr>
-						<td><b>User Name:</b></td><td><input type="text" name="username"/></td>
+						<td><b>Username:</b></td><td><input type="text" name="username"/></td>
 					</tr>
 					<tr>
 						<td><b>Password:</b></td><td><input type="password" name="password"/></td> 

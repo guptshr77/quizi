@@ -45,7 +45,7 @@ public class LoginServlet extends HttpServlet {
 			RequestDispatcher rd = request.getRequestDispatcher("QuestionServlet");
 			rd.forward(request, response);	
 		}else {
-			request.setAttribute("message", "The Username or Password is not corret");
+			request.setAttribute("message", "The Username or Password is not correct");
 			RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
 			rd.forward(request, response);	
 		}

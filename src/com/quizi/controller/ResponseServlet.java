@@ -45,7 +45,7 @@ public class ResponseServlet extends HttpServlet {
 			RequestDispatcher rd = request.getRequestDispatcher("jsps/report/report.jsp");
 			rd.forward(request, response);			
 		}else {
-			request.setAttribute("message", "Your answers were not stored. Make sure you have answered all questions.");
+			request.setAttribute("message", "Please answer all the questions.");
 			RequestDispatcher rd = request.getRequestDispatcher("jsps/questionaire/questions.jsp");
 			rd.forward(request, response);			
 		}	

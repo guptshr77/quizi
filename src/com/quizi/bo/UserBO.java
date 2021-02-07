@@ -16,7 +16,7 @@ public class UserBO {
 
 		if (!(password.length() >= 8 && password.length() <= 15)) {
 			System.out.println("Your password can contain between 8 to 15 characters");
-			message = "Your password can contain between 8 to 15 characters";
+			message = "Your password must contain between 8 to 15 characters";
 		}
 
 		if(firstname.length() > 20) {

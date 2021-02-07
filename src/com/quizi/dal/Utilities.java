@@ -9,19 +9,19 @@ import java.util.Properties;
 
 public class Utilities {
 	
-	private String db_urlString;
-	private String db_user;
-	private String db_password;
+	private static String db_urlString;
+	private static String db_user;
+	private static String db_password;
 
 	public static Connection getConnection() {
 		Connection connection = null;
 		
-		loadProperties();
+		//loadProperties();
 
 		try {
 			Class.forName("org.postgresql.Driver");
-			connection = DriverManager.getConnection(db_urlString, db_user, db_password);
-
+			//connection = DriverManager.getConnection(db_urlString, db_user, db_password);
+			connection = DriverManager.getConnection("jdbc:postgresql://localhost/quizi", "postgres", "tiger");
 			if (connection != null) {
 				System.out.println("Connection OK");
 

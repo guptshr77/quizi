@@ -7,6 +7,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+//import java.util.Date;
 
 import com.quizi.model.Matching;
 import com.quizi.model.Report;
@@ -39,7 +40,7 @@ public class ReportDAO {
 				r.setUserAnswer(rs.getString("useranswer"));
 				r.setCorrect(rs.getBoolean("iscorrect"));
 				r.setQuestionId(rs.getInt("questionid"));
-				r.setDateTime(rs.getTime("datetime"));
+				r.setDateTime(rs.getTimestamp("datetime"));
 				if(r.getQuestionType() == 1) {
 
 					String matchingQuery = "SELECT * FROM matching WHERE questionid = " + r.getQuestionId() + ";";

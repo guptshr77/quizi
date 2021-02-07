@@ -18,7 +18,7 @@ public class CheckAnswersBO {
 		Boolean isCorrect = false;
 		int userId = Integer.parseInt(request.getParameter("userId")); 
 		boolean isMatchingCorrect = true;
-
+		//TODO check if all questions are answered
 		for (int i = 1; i <= 5; i++) {	
 			isCorrect = false;
 			int questionId = Integer.parseInt(request.getParameter("quesId_"+ i));

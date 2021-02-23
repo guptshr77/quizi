@@ -27,6 +27,7 @@ java.util.Date,com.quizi.model.Matching" contentType="text/html; charset=ISO-885
 				<% 
 				User user = (User) request.getAttribute("user");
 				%>
+<!-- Top Right had Corner Links -->
 				<p ><%=user.getFirstName()%> <%=user.getLastName()%><br/>
 					<a href="/quizi/ReportServlet?userId=<%= user.getUserId()%>">Get Report</a><br/>
 					<a href="" onclick= "window.print()"/>Print</a><br/>
@@ -51,6 +52,7 @@ java.util.Date,com.quizi.model.Matching" contentType="text/html; charset=ISO-885
 			<td align="left">
 				<table>
 	
+	<!-- Divides the questions into groups of 5 in order of how the question appeared  -->
 					<%
 						List<Report> reports = (List<Report>) request.getAttribute("reports");
 						SimpleDateFormat formatter=new SimpleDateFormat("MMM dd, yyyy hh:mm aa");
@@ -63,7 +65,9 @@ java.util.Date,com.quizi.model.Matching" contentType="text/html; charset=ISO-885
 			
 							for (int i = reports.size() - 1; i >= 0; i--) {
 								report = reports.get(i);
-								int questionType = report.getQuestionType();
+								int questionType = report.getQuestionType();%>
+	<!-- Divides in groups of 5 -->
+								<%
 								if (countForDate % 5 == 0){
 									%>
 									<tr><td>
@@ -89,6 +93,7 @@ java.util.Date,com.quizi.model.Matching" contentType="text/html; charset=ISO-885
 					%>
 					<tr><td>	
 					<h4>
+	<!-- Print report of each question -->
 						Question
 						<%=countForDate%>:
 					</h4>

@@ -43,6 +43,7 @@ public class CheckAnswersServlet extends HttpServlet {
 
 		request.setAttribute("reports", reports);
 		
+		//send report info to Response Servlet
 		RequestDispatcher rd = request.getRequestDispatcher("/ResponseServlet");
 		rd.forward(request, response);
 	}

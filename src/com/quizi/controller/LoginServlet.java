@@ -33,12 +33,14 @@ public class LoginServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		LoginInfo login = new LoginInfo();
-
+		//get username and password to check
 		login.setUsername(request.getParameter("username"));
 		login.setPassword(request.getParameter("password"));
 
 		UserBO loginbo = new UserBO();
-
+		
+		//call userBO to check login info
+		//returns user object with User info 
 		User user = loginbo.login(login);
 		if (user != null) {
 			request.setAttribute("user", user);

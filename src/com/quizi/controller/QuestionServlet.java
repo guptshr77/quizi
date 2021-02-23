@@ -39,7 +39,7 @@ public class QuestionServlet extends HttpServlet {
 			User user = userBO.getUserDetails(Integer.parseInt(request.getParameter("userId")));
 			request.setAttribute("user", user);
 		}
-
+		//Get Questions for the quiz
 		QuestionsBO questionBO = new QuestionsBO();
 		List<Question> questions = questionBO.getQuestions();
 

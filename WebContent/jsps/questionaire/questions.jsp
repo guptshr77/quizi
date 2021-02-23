@@ -66,14 +66,16 @@
 						
 						<% out.println(q.getQuestionDescription()); %>
 						<br /> <input type="hidden" name="quesId_<%= i+1 %>" value="<%= q.getQuestionId()%>"> <input type="hidden" name="ques<%=q.getQuestionId()%>_type" value="<%=questionType%>">
-				
+						<!-- Question Type: True False -->
 						<% if (questionType == 2){ %>
 							<input type="radio" name="opt<%= q.getQuestionId()%>" value="true">
-							<label>True</label> <input type="radio" name="opt<%= q.getQuestionId()%>" value="false"> <label>False</label> <%
-							
+							<label>True</label> <input type="radio" name="opt<%= q.getQuestionId()%>" value="false"> <label>False</label> 
+						<!-- Question Type: Fill in the Blank -->	
+						<%	
 						}else if (questionType == 4){ %>
-							<input type="text" name="opt<%= q.getQuestionId()%>"><%
-							
+							<input type="text" name="opt<%= q.getQuestionId()%>">
+						<!-- Question Type: Multiple Choice -->	
+						<%
 						}else if(questionType == 3){							
 							 List<String> mcOptions = q.getMultipleChoice();
 							 for(int mcloop = 0; mcloop < mcOptions.size(); mcloop++){
@@ -82,6 +84,7 @@
 								value="<%=mcOptions.get(mcloop)%>" /> <label>
 								<% out.println(mcOptions.get(mcloop));%>
 								</label> <br />
+						<!-- Question Type: Matching (Drop Down) -->
 						<%	 }
 							 
 						}else if (questionType == 1){%>
@@ -104,6 +107,7 @@
 							
 						%>
 						<tr><td>
+						<!-- hidden fields to pass on -->
 							<br /> <br /> 
 							<input type="hidden" name="userId" value="<%= user.getUserId()%>" /> 
 							<input type="hidden" name="firstName" value="<%= user.getFirstName()%>" /> 

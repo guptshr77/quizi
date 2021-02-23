@@ -71,7 +71,9 @@ public class UserDAO {
 			}
 		}
 	}
-
+	
+	//Check Login info with database 
+	//returns user object  with info from database
 	public User login(LoginInfo login){
 		Connection con = Utilities.getConnection();
 		Statement stmt = null;

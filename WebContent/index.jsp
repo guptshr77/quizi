@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="quizi.css">
 <link rel = "icon" href = "QuiziLogo.jpg">
 </head>
+<!-- FIRST PAGE (LOG IN PAGE) -->
 <body>  
 	<table border="0" width="100%">
 		<tr>
@@ -55,6 +56,7 @@
 						<td colspan=2>
 							<br/>
 							<br/>
+							<!-- IF NEW ACCOUNT TO BE CREATED: -->
 							Don't have an account? Sign up <a href=jsps/user/signup.jsp>here</a>
 						</td>
 					</tr>

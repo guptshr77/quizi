@@ -3,14 +3,15 @@ package com.quizi.model;
 import java.util.List;
 
 public class Question {
+	//instance variables
 	private int questionId;
 	private int questionType;
 	private String questionDescription;
 	private String answer;
 	private List<String> multipleChoice;	
 	private List<Matching> matching;
-
-
+	
+	//Getter and Setter Methods
 	public List<Matching> getMatching() {
 		return matching;
 	}

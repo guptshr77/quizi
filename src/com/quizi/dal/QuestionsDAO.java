@@ -14,6 +14,7 @@ import com.quizi.model.Question;
 
 public class QuestionsDAO {
 	public List<Question> getQuestions() {
+		//variables and objects
 		Connection con = Utilities.getConnection();
 		Statement stmt = null;
 		ResultSet rs = null;
@@ -24,7 +25,8 @@ public class QuestionsDAO {
 		List<Matching> matching = null;
 		ResultSet rsmc = null;
 		ResultSet rsm = null;
-
+		
+		//makes, gets and returns the list of questions in a random order
 		try {
 			stmt = con.createStatement();
 			String getQuestions = "SELECT * FROM questions ORDER BY RANDOM() LIMIT 5;";
@@ -36,6 +38,7 @@ public class QuestionsDAO {
 				q.setQuestionType(rs.getInt("questionType"));
 				q.setQuestionDescription(rs.getString("questionDescription"));
 				q.setAnswer(rs.getString("answer"));
+				//check if question types is of mulitple choice, get the multiple choice answer choices 
 				if (q.getQuestionType() == 3) {
 					String multipleChoicesQuery = "SELECT mcoption FROM multiplechoice WHERE questionid = " + q.getQuestionId() + ";";
 					System.out.println(multipleChoicesQuery);
@@ -46,6 +49,7 @@ public class QuestionsDAO {
 					}
 					q.setMultipleChoice(multipleChoice);
 					rsmc.close();
+				//if the question type is of matching, we get the group of matching type
 				}else if(q.getQuestionType() == 1) {
 
 					String matchingQuery = "SELECT * FROM matching WHERE questionid = " + q.getQuestionId() + ";";

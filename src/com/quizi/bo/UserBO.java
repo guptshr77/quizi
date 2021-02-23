@@ -44,7 +44,8 @@ public class UserBO {
 
 		return message;
 	}
-
+	
+	//checks login info
 	public User login(LoginInfo login) {
 		UserDAO logindao = new UserDAO();
 

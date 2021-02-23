@@ -36,8 +36,8 @@ public class CheckAnswersServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		List<Question> questions = (List<Question>)request.getAttribute("questions");
-		System.out.println(questions);
-
+		
+		//send to chechAnwerBO
 		CheckAnswersBO checkAnswerBO = new CheckAnswersBO();
 		List<Report> reports = checkAnswerBO.checkAnswer(request);
 

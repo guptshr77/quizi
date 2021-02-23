@@ -27,9 +27,12 @@ java.util.Date,com.quizi.model.Matching" contentType="text/html; charset=ISO-885
 				<% 
 				User user = (User) request.getAttribute("user");
 				%>
-				<p><%=user.getFirstName()%> <%=user.getLastName()%><br/>
+				<p ><%=user.getFirstName()%> <%=user.getLastName()%><br/>
 					<a href="/quizi/ReportServlet?userId=<%= user.getUserId()%>">Get Report</a><br/>
+					<a href="" onclick= "window.print()"/>Print</a><br/>
 					<a href="/quizi/index.jsp">Logout</a>
+					
+				</p>
 			</td>
 		</tr>
 		<tr>
@@ -53,6 +56,9 @@ java.util.Date,com.quizi.model.Matching" contentType="text/html; charset=ISO-885
 						SimpleDateFormat formatter=new SimpleDateFormat("MMM dd, yyyy hh:mm aa");
 						int countForDate = 0;
 						Report report = null;
+						int numCorrect = 0;
+						boolean isNumCorrectReset=false;
+						
 						if (reports != null) {
 			
 							for (int i = reports.size() - 1; i >= 0; i--) {
@@ -60,11 +66,20 @@ java.util.Date,com.quizi.model.Matching" contentType="text/html; charset=ISO-885
 								int questionType = report.getQuestionType();
 								if (countForDate % 5 == 0){
 									%>
-									<tr><td> 
+									<tr><td>
+									<%
+										if(isNumCorrectReset){
+									%> 
+										<p><u>Score: <%=numCorrect%>/5 </u></p>
+										<%
+										}
+										isNumCorrectReset = true;	
+										%>
 									<br/><hr/><h3>Test taken at: <%
 									out.println(formatter.format(report.getDateTime()));
 									if(countForDate >= 5){
 										countForDate = 0;
+										numCorrect = 0;
 									}
 								}
 								%>
@@ -93,6 +108,7 @@ java.util.Date,com.quizi.model.Matching" contentType="text/html; charset=ISO-885
 								%>
 									<p style="color:green">Correct! The answer you selected was: <%=report.getAnswer()%></p>
 								<%
+								numCorrect++;
 							}else{
 								%>
 									<p style="color:red">Incorrect! Correct Answer is: <%=report.getAnswer()%></p>
@@ -105,6 +121,7 @@ java.util.Date,com.quizi.model.Matching" contentType="text/html; charset=ISO-885
 					%>
 					<p style="color:green">Correct! The answer you selected was: <%=report.getAnswer()%></p>
 					<%
+							numCorrect++;
 						} else {
 					%>
 					<p style="color:red"> Incorrect! The correct answer is: <%=report.getAnswer()%></p>
@@ -115,6 +132,7 @@ java.util.Date,com.quizi.model.Matching" contentType="text/html; charset=ISO-885
 					%>
 					<p style="color:green">Correct! The answer you selected was: <%=report.getAnswer()%></p>
 					<%
+						numCorrect++;
 						} else {
 					%>
 					<p style="color:red">Incorrect! The correct answer is: <%=report.getAnswer()%></p>
@@ -134,6 +152,7 @@ java.util.Date,com.quizi.model.Matching" contentType="text/html; charset=ISO-885
 								%>
 								<p style="color:green">Correct! </p>
 								<%
+									numCorrect++;
 									} else {
 								%>
 								<p style="color:red">Incorrect! These are the correct definitions.</p>

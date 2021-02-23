@@ -11,6 +11,7 @@ import com.quizi.model.Report;
 import com.quizi.model.User;
 
 public class CheckAnswersBO {
+	//compares answers of the use and then to the correct answer in database
 	public List<Report> checkAnswer(HttpServletRequest request){
 		CheckAnswersDAO answerDAO = new CheckAnswersDAO();	
 		String userAnswer = null;
@@ -18,7 +19,8 @@ public class CheckAnswersBO {
 		Boolean isCorrect = false;
 		int userId = Integer.parseInt(request.getParameter("userId")); 
 		boolean isMatchingCorrect = true;
-		//TODO check if all questions are answered
+		
+		//gets 5 random question from the database
 		for (int i = 1; i <= 5; i++) {	
 			isCorrect = false;
 			int questionId = Integer.parseInt(request.getParameter("quesId_"+ i));

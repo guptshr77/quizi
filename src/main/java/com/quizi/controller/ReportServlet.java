@@ -1,6 +1,7 @@
 package com.quizi.controller;
 
 import java.io.IOException;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -33,9 +34,9 @@ public class ReportServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		
 		ReportBO reportbo = new ReportBO();
-		List<Report> reports = reportbo.getReportData(Integer.parseInt(request.getParameter("userId")));
+		List<Report> reports= reportbo.getReportData(Integer.parseInt(request.getParameter("userId")));
 		
 		UserBO userBO = new UserBO();
 		User user = userBO.getUserDetails(Integer.parseInt(request.getParameter("userId")));

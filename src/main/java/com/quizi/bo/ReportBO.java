@@ -1,5 +1,6 @@
 package com.quizi.bo;
 
+import java.util.Date;
 import java.util.List;
 
 import com.quizi.dal.ReportDAO;
@@ -14,5 +15,5 @@ public class ReportBO {
 	public List<Report> getReportData(int userId) {
 		ReportDAO reponse = new ReportDAO();
 		return reponse.getReport(userId, true);
-	}			
+	}
 }

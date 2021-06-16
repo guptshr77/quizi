@@ -22,13 +22,29 @@
 					</tr>
 				</table>
 			</td>
-			<td align="right">
-				<% 
-				User user = (User) request.getAttribute("user");
-				%>
-				<p><%=user.getFirstName()%> <%=user.getLastName()%><br/>
-					<a href="/quizi/ReportServlet?userId=<%= user.getUserId()%>">Get Report</a><br/>
-					<a href="index.jsp">Logout</a>
+		</tr>
+		<tr>
+			<td>
+				<font size = "2" face="arial">
+					<table align="center">
+						<tr>
+							<% 
+							User user = (User) request.getAttribute("user");
+							%>
+							<td><a href="/quizi/ReportServlet?userId=<%= user.getUserId()%>">Get Report</a>&nbsp;&nbsp;|&nbsp;&nbsp;</td>
+							<td><a href="index.jsp">Logout</a>&nbsp;&nbsp;</td>
+						</tr>
+					</table>
+				</font>
+			</td>
+			<td>
+				<font size="2" face="arial">
+					<table align="right">
+						<tr>
+							<td><%=user.getLastName()%>, <%=user.getFirstName()%><br/> </td>
+						</tr>
+					</table>
+				</font>
 			</td>
 		</tr>
 		<tr>

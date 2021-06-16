@@ -6,8 +6,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Date;
 import java.util.List;
-//import java.util.Date;
 
 import com.quizi.model.Matching;
 import com.quizi.model.Report;
@@ -77,6 +77,4 @@ public class ReportDAO {
 		}
 		return report;
 	}
-
-
 }

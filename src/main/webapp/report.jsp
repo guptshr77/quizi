@@ -20,18 +20,31 @@ java.util.Date,com.quizi.model.Matching" contentType="text/html; charset=ISO-885
 					</tr>
 				</table>
 			</td>
-			<td align="right"  width="50%">
-				<% 
-				User user = (User)request.getAttribute("user");
-				%>
-<!-- Top Right had Corner Links (Navigation Links) -->
-				<p ><%=user.getFirstName()%> <%=user.getLastName()%><br/>
-					<a href="/quizi/QuestionServlet?userId=<%=user.getUserId()%>">Take Another Test</a><br/>
-					<a href="/quizi/ReportServlet?userId=<%= user.getUserId()%>">Get Report</a><br/>
-					<a href="" onclick= "window.print()"/>Print</a><br/>
-					<a href="index.jsp">Logout</a>
-					
-				</p>
+		</tr>
+		<tr>
+			<td>
+				<font size="2" face="arial" >
+					<table align="center">
+						<tr>
+							<%
+							User user = (User)request.getAttribute("user");
+							%>
+							<td><a href="/quizi/QuestionServlet?userId=<%=user.getUserId()%>">Take Another Test</a> &nbsp;&nbsp;|&nbsp;&nbsp;</td>
+							<td><a href="/quizi/ReportServlet?userId=<%= user.getUserId()%>">Get Report</a> &nbsp;&nbsp;|&nbsp;&nbsp;</td>
+							<td><a href="" onclick= "window.print()"/>Print</a> &nbsp;&nbsp;|&nbsp;&nbsp;</td>
+							<td><a href="index.jsp">Logout</a> &nbsp;&nbsp;</td>
+						</tr>
+					</table>
+				</font>
+			</td>
+			<td>
+				<font size="2" face="arial" >
+					<table align="right">
+						<tr>
+							<td><%=user.getLastName()%>, <%=user.getFirstName()%></td>
+						</tr>
+					</table>
+				</font>
 			</td>
 		</tr>
 		<tr>
@@ -58,19 +71,9 @@ java.util.Date,com.quizi.model.Matching" contentType="text/html; charset=ISO-885
 						int countForDate = 0;
 						Report report = null;
 						int numCorrect = 0;
-						boolean isNumCorrectReset=false;
+						boolean isNumCorrectReset=false;%>
 						
-						if (reports != null) {
-							%>
-							<b>Filter: </b> <select name="reportDate" id="reportDate">
-							<%
-							for (int i = reports.size() - 1; i >= 0; i--) {
-								report = reports.get(i);
-								%>
-								<option value="<%=formatter.format(report.getDateTime())%>"><%=formatter.format(report.getDateTime())%></option>
-								<%
-							}
-							%></select><%
+						<%if (reports != null) {
 							for (int i = reports.size() - 1; i >= 0; i--) {
 								report = reports.get(i);
 								int questionType = report.getQuestionType();%>
@@ -87,7 +90,7 @@ java.util.Date,com.quizi.model.Matching" contentType="text/html; charset=ISO-885
 										}
 										isNumCorrectReset = true;	
 										%>
-									<br/><hr/><h3>Test taken at: <%
+									<hr/><h3>Test taken at: <%
 									out.println(formatter.format(report.getDateTime()));
 									if(countForDate >= 5){
 										countForDate = 0;

@@ -35,7 +35,7 @@ public class ReportServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		ReportBO reportbo = new ReportBO();
-		List<Report> reports = reportbo.getReportData(Integer.parseInt(request.getParameter("userId")), request.getParameter("searchReport"));
+		List<Report> reports = reportbo.getReportData(Integer.parseInt(request.getParameter("userId")));
 		
 		UserBO userBO = new UserBO();
 		User user = userBO.getUserDetails(Integer.parseInt(request.getParameter("userId")));

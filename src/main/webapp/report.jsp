@@ -24,7 +24,7 @@ java.util.Date,com.quizi.model.Matching" contentType="text/html; charset=ISO-885
 				<% 
 				User user = (User)request.getAttribute("user");
 				%>
-<!-- Top Right had Corner Links -->
+<!-- Top Right had Corner Links (Navigation Links) -->
 				<p ><%=user.getFirstName()%> <%=user.getLastName()%><br/>
 					<a href="/quizi/QuestionServlet?userId=<%=user.getUserId()%>">Take Another Test</a><br/>
 					<a href="/quizi/ReportServlet?userId=<%= user.getUserId()%>">Get Report</a><br/>
@@ -41,14 +41,6 @@ java.util.Date,com.quizi.model.Matching" contentType="text/html; charset=ISO-885
 		<tr>
 			<td align="center" colspan=2><h1>Report</h1></td>
 		</tr>
-<!-- Search Bar to get Customized report -->
-	<form action = "/quizi/ReportServlet" mehtod = "post">
-		<tr>
-			<input type = "hidden" name = "userId" value = "<%user.getUserId()%>">
-			<td><b>Search:</b><input type = "text" name = "searchReport"/>  <input type = "submit" value = "Submit"></td>
-			
-		</tr>
-	</form>
 		<tr>
 			<td align="center"  colspan=2>
 
@@ -69,7 +61,16 @@ java.util.Date,com.quizi.model.Matching" contentType="text/html; charset=ISO-885
 						boolean isNumCorrectReset=false;
 						
 						if (reports != null) {
-			
+							%>
+							<b>Filter: </b> <select name="reportDate" id="reportDate">
+							<%
+							for (int i = reports.size() - 1; i >= 0; i--) {
+								report = reports.get(i);
+								%>
+								<option value="<%=formatter.format(report.getDateTime())%>"><%=formatter.format(report.getDateTime())%></option>
+								<%
+							}
+							%></select><%
 							for (int i = reports.size() - 1; i >= 0; i--) {
 								report = reports.get(i);
 								int questionType = report.getQuestionType();%>

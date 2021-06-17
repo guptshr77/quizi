@@ -11,7 +11,7 @@ java.util.Date,com.quizi.model.Matching" contentType="text/html; charset=ISO-885
 <body>
 	<table border="0" width="100%">
 		<tr>
-			<td align="left" width="50%">
+			<td align="left">
 				<table>
 					<tr>
 						<td colspan="2">
@@ -33,7 +33,7 @@ java.util.Date,com.quizi.model.Matching" contentType="text/html; charset=ISO-885
 							<td><a href="/quizi/ReportServlet?userId=<%= user.getUserId()%>">Get Report</a> &nbsp;&nbsp;|&nbsp;&nbsp;</td>
 							<td><a href="" onclick= "window.print()"/>Print</a> &nbsp;&nbsp;|&nbsp;&nbsp;</td>
 							<td><a href="index.jsp">Logout</a> &nbsp;&nbsp;|&nbsp;&nbsp;</td>
-							<td><a hred="help.jsp">Help Menu</a></td>
+							<td><a href="help.jsp?userId=<%= user.getUserId()%>&firstname=<%=user.getFirstName()%>&lastname=<%=user.getLastName()%>">Help Menu</a></td>
 						</tr>
 					</table>
 				</font>
@@ -42,7 +42,7 @@ java.util.Date,com.quizi.model.Matching" contentType="text/html; charset=ISO-885
 				<font size="2" face="arial" >
 					<table align="right">
 						<tr>
-							<td><%=user.getLastName()%>, <%=user.getFirstName()%></td>
+							<td><%=user.getLastName()%>,&nbsp;<%=user.getFirstName()%></td>
 						</tr>
 					</table>
 				</font>

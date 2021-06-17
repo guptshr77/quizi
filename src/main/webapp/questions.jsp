@@ -42,7 +42,7 @@
 				<font size="2" face="arial">
 					<table align="right">
 						<tr>
-							<td><%=user.getLastName()%>, <%=user.getFirstName()%><br/> </td>
+							<td><%=user.getLastName()%>,&nbsp;<%=user.getFirstName()%><br/> </td>
 						</tr>
 					</table>
 				</font>

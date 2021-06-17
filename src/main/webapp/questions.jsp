@@ -32,7 +32,8 @@
 							User user = (User) request.getAttribute("user");
 							%>
 							<td><a href="/quizi/ReportServlet?userId=<%= user.getUserId()%>">Get Report</a>&nbsp;&nbsp;|&nbsp;&nbsp;</td>
-							<td><a href="index.jsp">Logout</a>&nbsp;&nbsp;</td>
+							<td><a href="index.jsp">Logout</a>&nbsp;&nbsp;| &nbsp;&nbsp;</td>
+							<td><a href="help.jsp?userId=<%= user.getUserId()%>&firstname=<%=user.getFirstName()%>&lastname=<%=user.getLastName()%>">Help Menu</td>
 						</tr>
 					</table>
 				</font>

@@ -32,7 +32,8 @@ java.util.Date,com.quizi.model.Matching" contentType="text/html; charset=ISO-885
 							<td><a href="/quizi/QuestionServlet?userId=<%=user.getUserId()%>">Take Another Test</a> &nbsp;&nbsp;|&nbsp;&nbsp;</td>
 							<td><a href="/quizi/ReportServlet?userId=<%= user.getUserId()%>">Get Report</a> &nbsp;&nbsp;|&nbsp;&nbsp;</td>
 							<td><a href="" onclick= "window.print()"/>Print</a> &nbsp;&nbsp;|&nbsp;&nbsp;</td>
-							<td><a href="index.jsp">Logout</a> &nbsp;&nbsp;</td>
+							<td><a href="index.jsp">Logout</a> &nbsp;&nbsp;|&nbsp;&nbsp;</td>
+							<td><a hred="help.jsp">Help Menu</a></td>
 						</tr>
 					</table>
 				</font>

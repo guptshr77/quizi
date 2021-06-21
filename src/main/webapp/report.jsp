@@ -15,7 +15,7 @@ java.util.Date,com.quizi.model.Matching" contentType="text/html; charset=ISO-885
 				<table>
 					<tr>
 						<td colspan="2">
-							<img src="QuiziLogo.jpg" alt="Quizi">
+							<img src="QuiziLogo.jpg" alt="Quizi"/>
 						</td>
 					</tr>
 				</table>
@@ -30,8 +30,7 @@ java.util.Date,com.quizi.model.Matching" contentType="text/html; charset=ISO-885
 							User user = (User)request.getAttribute("user");
 							%>
 							<td><a href="/quizi/QuestionServlet?userId=<%=user.getUserId()%>">Take Another Test</a> &nbsp;&nbsp;|&nbsp;&nbsp;</td>
-							<td><a href="/quizi/ReportServlet?userId=<%= user.getUserId()%>">Get Report</a> &nbsp;&nbsp;|&nbsp;&nbsp;</td>
-							<td><a href="" onclick= "window.print()"/>Print</a> &nbsp;&nbsp;|&nbsp;&nbsp;</td>
+							<td><a href="/quizi/ReportServlet?userId=<%= user.getUserId()%>">Get Full Report</a> &nbsp;&nbsp;|&nbsp;&nbsp;</td>
 							<td><a href="index.jsp">Logout</a> &nbsp;&nbsp;|&nbsp;&nbsp;</td>
 							<td><a href="help.jsp?userId=<%= user.getUserId()%>&firstname=<%=user.getFirstName()%>&lastname=<%=user.getLastName()%>">Help Menu</a></td>
 						</tr>
@@ -54,6 +53,9 @@ java.util.Date,com.quizi.model.Matching" contentType="text/html; charset=ISO-885
 		
 		<tr>
 			<td align="center" colspan=2><h1>Report</h1></td>
+		</tr>
+		<tr>
+			<td align="right" colspan=1><a href="" onclick= "window.print()"/>Print</a></td>
 		</tr>
 		<tr>
 			<td align="center"  colspan=2>

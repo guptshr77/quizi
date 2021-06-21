@@ -92,7 +92,7 @@
 					<tr>
 						<td>
 							<p style="margin-left: 40px">When the user submits a questionaire, a report of that particular test is presented. <br/>
-							If the user clicks the <i>Get Report</i> option in the menu, result of all the tests taken are presented labled by the datetime of the test taken. </p>
+							If the user clicks the <i>Get Report</i> option in the menu, result of all the tests taken are presented labled by the datetime of the test taken. This report is customized to the user that is logged in</p>
 						</td>
 					</tr>
 					<tr>
@@ -102,7 +102,7 @@
 					</tr>
 					<tr>
 						<td>
-							<p style="margin-left: 40px">When the user clicks on Print menu item in the Reports page, the whole report visible can be printed into a desired format.</p>
+							<p style="margin-left: 40px">When the user clicks on Print menu item in the Report page, it allows them to print it in desirable format, for example, hard copy, save as pdf/xps.</p>
 						</td>
 					</tr>
 				</table>

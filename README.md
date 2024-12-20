@@ -6,3 +6,11 @@ git clone <repository-url>
 cd <project-directory>
 npm install
 npm start
+
+## Softwares/Libraries used
+- Java
+- JavaScript
+- HTML
+- Javax
+- SpringBoot
+- Java.sql
